@@ -1,4 +1,6 @@
 {
+  "party": "",
+  "welcome.description": "%name%, is your name really %name%?",
   "welcome.greetings": "Welcome %name%, dear friend!",
-  "welcome.heading": "Hello world"
+  "welcome.heading": "Hello world!"
 }

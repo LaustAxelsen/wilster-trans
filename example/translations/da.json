@@ -1,4 +1,6 @@
 {
+  "party": "",
+  "welcome.description": "",
   "welcome.greetings": "Velkommen %name%, kære ven!",
   "welcome.heading": "Hej verden!"
 }

@@ -1,6 +1,0 @@
-{
-  "outputDir": "./example/translations/",
-  "languages": ["en", "da"],
-  "defaultLocale": "en",
-  "basePath": "./example/src/"
-}

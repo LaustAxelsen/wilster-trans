@@ -1,18 +1,17 @@
 {
   "name": "wilster-trans",
-  "version": "1.0.0",
-  "description": "Creates simple documentation for ReactJS components",
+  "version": "0.9.0",
+  "description": "An ultra simple translation / i18n library that support multiple languages that are stored in JSON.",
   "main": "./index.js",
   "scripts": {
-    "testInit": "./bin/wilster-trans.js init",
-    "testRun": "./bin/wilster-trans.js run -c ./example/translation-config.json",
-    "testLoad": "node example/testLoad.js"
+    "testRun": "./bin/wilster-trans.js run -s ./example/src -o ./example/translations -l en,da,no",
+    "test": "./node_modules/mocha/bin/mocha example/testLoad.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/LaustAxelsen/wilster-trans"
   },
-  "keywords": ["react", "react", "translation", "trans", "polyglot", "languages", "lang"],
+  "keywords": ["translation", "trans", "polyglot", "languages", "lang", "i18n", "i18"],
   "author": "Laust Axelsen",
   "license": "MIT",
   "bin": {
@@ -20,6 +19,8 @@
   },
   "devDependencies": {
     "async": "^2.6.0",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.1.1"
   },

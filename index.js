@@ -1,25 +1,49 @@
 let loadedLocalFiles = {}
 let currentLocal = null
+let hasBeenInit = false
+let locales = []
+let path = require('path')
+let fs = require('fs')
+
 var model = {
-  init: function(configPath) {
+  init: function(configObj) {
+    if (typeof configObj != 'object') throw Error('Invalid config object provided')
     // loading config
-    let loadedConfig = require(configPath)
+    let loadedConfig = configObj
 
     // setting default locale
-    currentLocal = loadedConfig.defaultLocale
+    currentLocal = loadedConfig.config ? loadedConfig.config.defaultLocale : null
+
+    for (var property in loadedConfig.locales) {
+      if (loadedConfig.locales.hasOwnProperty(property)) {
+        if (!currentLocal) currentLocal = property
+        locales.push(property)
+      }
+    }
 
     // loading languages
-    loadedConfig.languages.forEach(local => {
-      loadedLocalFiles[local] = require(loadedConfig.outputDir + local)
+    locales.forEach(local => {
+      loadedLocalFiles[local] = loadedConfig.locales[local]
     })
+
+    if (locales.length == 0) {
+      throw Error('No locales defined in wilster-trans init')
+    }
+
+    hasBeenInit = true
   },
   setLocale: function(locale) {
-    if (!loadedLocalFiles[currentLocal]) throw 'Locale not found'
+    if (!loadedLocalFiles[currentLocal]) throw Error('Locale not found')
     currentLocal = locale
   },
+  getLocale: function() {
+    return currentLocal
+  },
   t: function(translationKey, params) {
+    if (!hasBeenInit) throw Error('wilster-trans has not been init')
+
     // no locale
-    if (!loadedLocalFiles[currentLocal]) throw 'Locale not found'
+    if (!loadedLocalFiles[currentLocal]) throw Error('Locale not found')
 
     // no translation key
     if (!loadedLocalFiles[currentLocal][translationKey]) {
