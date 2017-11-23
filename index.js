@@ -1,32 +1,47 @@
-import Polyglot from 'node-polyglot'
-var polyglot = new Polyglot()
+let loadedLocalFiles = {}
+let currentLocal = null
+var model = {
+  init: function(configPath) {
+    // loading config
+    let loadedConfig = require(configPath)
 
-// polyglot.load = (lang = Session.get('locale') || 'da') => {
-//   if (Meteor.isClient) Session.set('locale', lang)
-//   var locales = {}
+    // setting default locale
+    currentLocal = loadedConfig.defaultLocale
 
-//   switch (lang) {
-//     case 'en':
-//       locales = LangEn
-//       break
-//     case 'da':
-//       locales = LangDa
-//       break
-//     default:
-//   }
+    // loading languages
+    loadedConfig.languages.forEach(local => {
+      loadedLocalFiles[local] = require(loadedConfig.outputDir + local)
+    })
+  },
+  setLocale: function(locale) {
+    if (!loadedLocalFiles[currentLocal]) throw 'Locale not found'
+    currentLocal = locale
+  },
+  t: function(translationKey, params) {
+    // no locale
+    if (!loadedLocalFiles[currentLocal]) throw 'Locale not found'
 
-//   polyglot.extend(locales)
-// }
+    // no translation key
+    if (!loadedLocalFiles[currentLocal][translationKey]) {
+      console.warn('[wilster-trans] Missing translation key: ' + translationKey + ' (' + currentLocal + ')')
+      return translationKey
+    }
 
-// polyglot.trans = polyglot.t
+    // params?
+    if (params) {
+      var translation = loadedLocalFiles[currentLocal][translationKey]
 
-// polyglot.t = function(key) {
-//   if (!this.has(key)) {
-//     console.warn('Missing translation for ' + key)
-//     return LangEn[key] || key
-//   } else {
-//     return formatTranslation(polyglot.trans(key) || LangEn[key] || key)
-//   }
-// }
+      for (var property in params) {
+        if (params.hasOwnProperty(property)) {
+          translation = translation.replace(new RegExp('%' + property + '%', 'g'), params[property])
+        }
+      }
+      return translation
+    }
 
-export default polyglot
+    // pure translation
+    return loadedLocalFiles[currentLocal][translationKey]
+  }
+}
+
+module.exports = model

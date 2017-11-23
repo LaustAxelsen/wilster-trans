@@ -5,7 +5,8 @@
   "main": "./index.js",
   "scripts": {
     "testInit": "./bin/wilster-trans.js init",
-    "testRun": "./bin/wilster-trans.js run -c ./translation-config.json"
+    "testRun": "./bin/wilster-trans.js run -c ./example/translation-config.json",
+    "testLoad": "node example/testLoad.js"
   },
   "repository": {
     "type": "git",

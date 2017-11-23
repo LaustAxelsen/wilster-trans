@@ -1,4 +1,4 @@
 {
-  "welcome.greetings": "Welcome dear friend!",
-  "welcome.heading": ""
+  "welcome.greetings": "Welcome %name%, dear friend!",
+  "welcome.heading": "Hello world"
 }

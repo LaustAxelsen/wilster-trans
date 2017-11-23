@@ -1,7 +1,7 @@
 # Wilster-trans
 
-It's always bugged me how difficult translations in applications ends up being, so this is an attempt on making that task as simple as possible. It's based on some really nice projects including
-[node-polyglot](https://www.npmjs.com/package/node-polyglot). It's almost just a wrapper of the good work done on other projects.
+It's always bugged me how difficult translations in applications ends up being, so this is an attempt on making that task as simple as possible. It's based on some really nice projects e.g.
+[node-polyglot](https://www.npmjs.com/package/node-polyglot).
 
 ## Installation
 
