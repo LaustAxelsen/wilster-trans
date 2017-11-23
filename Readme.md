@@ -3,8 +3,8 @@
 It's always bugged me how difficult translations in applications ends up being, so this is an attempt on making that task as simple as possible. It's based on some really nice projects e.g.
 [node-polyglot](https://www.npmjs.com/package/node-polyglot).
 
-The only thing I would have like to do better, is the flexibility of extraction - currently you are **required** use `import Trans from 'wilster-trans'` due to my poor regex skills.. nevertheless, it
-works :)
+The only thing I would have like to do better, is the flexibility of extraction - currently you are **required** to use `import Trans from 'wilster-trans'` syntax - due to my poor regex skills..
+nevertheless, it works :)
 
 ## Installation
 
@@ -41,16 +41,16 @@ Trans.init({
 export default App extends Component {
   render() {
     return (
-	<div>
-          <h1>{Trans.t("welcome.heading")}</h1>
-	  <p>{Trans.t("welcome.greetings", {name: "John Doe"})}</p>
-	</div>
+	    <div>
+        <h1>{Trans.t("welcome.heading")}</h1>
+	      <p>{Trans.t("welcome.greetings", {name: "John Doe"})}</p>
+	    </div>
     )
   }
 }
 ```
 
-Then run **`wilster-trans run -s ./src -o ./src/translations -l en,da,es,no`**
+Then run **`wilster-trans run -s ./src -o ./src/translations -l en,da`**
 
 **./src/translations/en.json**
 
