@@ -1,0 +1,32 @@
+{
+  "name": "wilster-trans",
+  "version": "1.0.0",
+  "description": "Creates simple documentation for ReactJS components",
+  "main": "./index.js",
+  "scripts": {
+    "testInit": "./bin/wilster-trans.js init",
+    "testRun": "./bin/wilster-trans.js run -c ./translation-config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaustAxelsen/wilster-trans"
+  },
+  "keywords": ["react", "react", "translation", "trans", "polyglot", "languages", "lang"],
+  "author": "Laust Axelsen",
+  "license": "MIT",
+  "bin": {
+    "wilster-doc": "./bin/wilster-trans.js"
+  },
+  "devDependencies": {
+    "async": "^2.6.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "fs": "0.0.1-security",
+    "node-dir": "^0.1.17",
+    "path": "^0.12.7",
+    "underscore": "^1.8.3"
+  }
+}
