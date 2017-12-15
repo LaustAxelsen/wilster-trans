@@ -1,9 +1,7 @@
-let loadedLocalFiles = {}
-let currentLocal = null
-let hasBeenInit = false
-let locales = []
-let path = require('path')
-let fs = require('fs')
+var loadedLocalFiles = {}
+var currentLocal = null
+var hasBeenInit = false
+var locales = []
 
 var model = {
   init: function(configObj) {
