@@ -1,6 +1,6 @@
 {
   "name": "wilster-trans",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Ultra simple translation / i18n library that support multiple languages that are stored in JSON.",
   "main": "./index.js",
   "scripts": {
@@ -11,7 +11,23 @@
     "type": "git",
     "url": "https://github.com/LaustAxelsen/wilster-trans"
   },
-  "keywords": ["translation", "trans", "polyglot", "languages", "lang", "i18n", "i18", "react", "angular", "vue", "intl", "ling", "translate", "json", "react-native"],
+  "keywords": [
+    "translation",
+    "trans",
+    "polyglot",
+    "languages",
+    "lang",
+    "i18n",
+    "i18",
+    "react",
+    "angular",
+    "vue",
+    "intl",
+    "ling",
+    "translate",
+    "json",
+    "react-native"
+  ],
   "author": "Laust Axelsen",
   "license": "MIT",
   "bin": {
@@ -25,7 +41,7 @@
     "react": "^16.1.1"
   },
   "dependencies": {
-    "commander": "^2.11.0",
+    "commander": "^2.15.1",
     "fs": "0.0.1-security",
     "node-dir": "^0.1.17",
     "path": "^0.12.7",

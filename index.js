@@ -7,7 +7,7 @@ var model = {
   init: function(configObj) {
     if (typeof configObj != 'object') throw Error('Invalid config object provided')
     // loading config
-    let loadedConfig = configObj
+    var loadedConfig = configObj
 
     // setting default locale
     currentLocal = loadedConfig.config ? loadedConfig.config.defaultLocale : null
@@ -20,9 +20,9 @@ var model = {
     }
 
     // loading languages
-    locales.forEach(local => {
-      loadedLocalFiles[local] = loadedConfig.locales[local]
-    })
+    for (var index = 0; index < locales.length; index++) {
+      loadedLocalFiles[locales[index]] = loadedConfig.locales[locales[index]]
+    }
 
     if (locales.length == 0) {
       throw Error('No locales defined in wilster-trans init')
