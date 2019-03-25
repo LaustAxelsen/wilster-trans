@@ -1,6 +1,6 @@
 {
   "name": "wilster-trans",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "Ultra simple translation / i18n library that support multiple languages that are stored in JSON.",
   "main": "./index.js",
   "scripts": {

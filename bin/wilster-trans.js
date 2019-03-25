@@ -72,7 +72,7 @@ let handleExtraction = config => {
   let readFolder = folder => {
     dir.readFiles(
       folder,
-      { match: /.(js|jsx)$/ },
+      { match: /.(js|jsx|tsx|ts)$/ },
       (err, content, next) => {
         if (err) throw err
         handlePolyglotExtraction(content, config)
